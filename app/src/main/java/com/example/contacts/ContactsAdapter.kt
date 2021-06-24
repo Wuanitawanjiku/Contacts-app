@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 
@@ -24,6 +25,9 @@ class ContactsAdapter (var contactsList: List<Contacts>): RecyclerView.Adapter<C
             .get()
             .load(currentContacts.imageUrl)
             .into(holder.imgContact)
+        holder.cvContact.setOnClickListener {
+
+        }
     }
 
     override fun getItemCount(): Int {
@@ -36,4 +40,5 @@ class ContactsViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
     var tvPhoneNumber = itemView.findViewById<TextView>(R.id.tvPhoneNumber)
     var tvEmail = itemView.findViewById<TextView>(R.id.tvEmail)
     var imgContact =itemView.findViewById<ImageView>(R.id.imgContact)
+    var cvContact = itemView.findViewById<CardView>(R.id.cvContact)
 }

@@ -11,7 +11,8 @@
     app:cardBackgroundColor="#F6DEDE"
     app:cardCornerRadius="4dp"
     app:cardElevation="8dp"
-    app:cardMaxElevation="4dp">
+    app:cardMaxElevation="4dp"
+    android:id="@+id/cvContact">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
