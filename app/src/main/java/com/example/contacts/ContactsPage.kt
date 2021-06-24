@@ -15,7 +15,6 @@ class ContactsPage : AppCompatActivity() {
     }
 
     fun displayContacts(){
-        var rvContacts = findViewById<RecyclerView>(R.id.rvContacts)
         var contactsList = listOf(
             Contacts("Deborah Mutua", "0111997545", "deborahmutua@gmail.com"),
             Contacts("Faith Mwende", "0123859435", "mwendefaith@gmail.com"),
@@ -25,10 +24,14 @@ class ContactsPage : AppCompatActivity() {
             Contacts("Manu Abuya", "0189533954", "abuyamanu@gmail.com"),
             Contacts("Victor Mutisya", "01240249052", "mutisyavictor@gmail.com"),
             Contacts("Mary Wanjiru", "0114204285", "wanjirumary@gmail.com"),
-            Contacts("Irene Nyambura", "0134613316", "githuairene@gmail.com")
+            Contacts("Irene Nyambura", "0134613316", "githuairene@gmail.com"),
+            Contacts("Joy Jahenda", "0117387284", "jahendajoy@gmail.com")
         )
-        var contactsAdapter = ContactsAdapter(contactsList)
+
+        var rvContacts = findViewById<RecyclerView>(R.id.rvContacts)
+
         rvContacts.layoutManager = LinearLayoutManager(baseContext)
+        var contactsAdapter = ContactsAdapter(contactsList)
         rvContacts.adapter = contactsAdapter
     }
 }
