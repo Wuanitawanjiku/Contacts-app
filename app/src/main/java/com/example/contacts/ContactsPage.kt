@@ -31,7 +31,7 @@ class ContactsPage : AppCompatActivity() {
         var rvContacts = findViewById<RecyclerView>(R.id.rvContacts)
 
         rvContacts.layoutManager = LinearLayoutManager(baseContext)
-        var contactsAdapter = ContactsAdapter(contactsList)
+        var contactsAdapter = ContactsAdapter(contactsList, baseContext)
         rvContacts.adapter = contactsAdapter
     }
 }

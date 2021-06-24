@@ -1,6 +1,7 @@
 package com.example.contacts
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +11,7 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 
-class ContactsAdapter (var contactsList: List<Contacts>): RecyclerView.Adapter<ContactsViewHolder>(){
+class ContactsAdapter (var contactsList: List<Contacts>, var context: Context): RecyclerView.Adapter<ContactsViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactsViewHolder {
         var itemView = LayoutInflater.from(parent.context).inflate(R.layout.contacts_list_item, parent, false)
         return ContactsViewHolder(itemView)
@@ -25,8 +26,11 @@ class ContactsAdapter (var contactsList: List<Contacts>): RecyclerView.Adapter<C
             .get()
             .load(currentContacts.imageUrl)
             .into(holder.imgContact)
-        holder.cvContact.setOnClickListener {
 
+        holder.cvContact.setOnClickListener {
+            var intent = Intent(context, ViewContactActivity::class.java)
+            intent.putExtra("name", currentContacts.contactsName)
+            context.startActivity(intent)
         }
     }
 
