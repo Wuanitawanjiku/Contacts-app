@@ -25,11 +25,16 @@ class ContactsAdapter (var contactsList: List<Contacts>, var context: Context): 
         Picasso
             .get()
             .load(currentContacts.imageUrl)
+            //default picture
+            .placeholder(R.drawable.person)
             .into(holder.imgContact)
 
         holder.cvContact.setOnClickListener {
             var intent = Intent(context, ViewContactActivity::class.java)
             intent.putExtra("name", currentContacts.contactsName)
+            intent.putExtra("phoneNumber", currentContacts.contactsPhoneNumber)
+            intent.putExtra("email", currentContacts.contactsEmail)
+            intent.putExtra("image", currentContacts.imageUrl)
             context.startActivity(intent)
         }
     }
@@ -41,8 +46,8 @@ class ContactsAdapter (var contactsList: List<Contacts>, var context: Context): 
 
 class ContactsViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
     var tvName = itemView.findViewById<TextView>(R.id.tvName)
-    var tvPhoneNumber = itemView.findViewById<TextView>(R.id.tvPhoneNumber)
-    var tvEmail = itemView.findViewById<TextView>(R.id.tvEmail)
+    var tvPhoneNumber = itemView.findViewById<TextView>(R.id.tvPhoneNumber1)
+    var tvEmail = itemView.findViewById<TextView>(R.id.tvEmail1)
     var imgContact =itemView.findViewById<ImageView>(R.id.imgContact)
     var cvContact = itemView.findViewById<CardView>(R.id.cvContact)
 }
